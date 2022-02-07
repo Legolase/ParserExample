@@ -2,7 +2,7 @@ package expression;
 
 public class Nand extends TwoOper {
     public Nand(Base left, Base right) {
-        super("nand", left, right);
+        super("#", left, right);
     }
 
     @Override

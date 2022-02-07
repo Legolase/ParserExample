@@ -27,4 +27,9 @@ public class Const implements Base {
         }
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return (value) ? "1" : "0";
+    }
 }

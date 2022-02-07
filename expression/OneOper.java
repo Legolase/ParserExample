@@ -27,4 +27,9 @@ public abstract class OneOper extends Oper {
     public boolean evaluate(boolean x) {
         return oper(vyrashenie.evaluate(x));
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + vyrashenie.toString();
+    }
 }

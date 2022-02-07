@@ -6,6 +6,7 @@ public class Main {
                 new Nor(new Variable("x"), new Const(false)),
                 new Inversion(new Variable("x"))
         );
+        System.out.println(expression);
         System.out.println(expression.evaluate(true));
     } //(x nor 0) and (!x)
 }

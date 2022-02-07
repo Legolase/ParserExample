@@ -30,4 +30,9 @@ public abstract class TwoOper extends Oper {
     public boolean evaluate(boolean x) {
         return oper(left.evaluate(x), right.evaluate(x));
     }
+
+    @Override
+    public String toString() {
+        return "(" + left.toString() + " " + super.toString() + " " + right.toString() + ")";
+    }
 }

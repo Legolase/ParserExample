@@ -24,4 +24,9 @@ public class Variable implements Base {
     public boolean evaluate(boolean x) {
         return x;
     }
+
+    @Override
+    public String toString() {
+        return variable;
+    }
 }

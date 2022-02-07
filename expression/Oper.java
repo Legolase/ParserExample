@@ -19,4 +19,9 @@ public abstract class Oper implements Base {
     public int hashCode() {
         return simvol.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return simvol;
+    }
 }

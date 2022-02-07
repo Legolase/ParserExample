@@ -18,10 +18,6 @@ public class BaseParser {
         return expected == current;
     }
 
-    protected char getCurrent() {
-        return current;
-    }
-
     protected boolean end() {
         return test(END);
     }

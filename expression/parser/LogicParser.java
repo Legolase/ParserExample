@@ -50,32 +50,46 @@ public class LogicParser {
         }
 
         private Base parseStruct() {
+            Base temp;
+            skipWhitespaces();
             if (take('~')) {
+                skipWhitespaces();
                 if (take('0')) {
-                    return new Inversion(new Const(false));
+                    temp =  new Inversion(new Const(false));
                 } else if (take('1')) {
-                    return new Inversion(new Const(true));
+                    temp = new Inversion(new Const(true));
                 } else if (take('x')) {
-                    return new Inversion(new Variable("x"));
+                    temp = new Inversion(new Variable("x"));
                 } else if (take('(')) {
-                    Base temp = new Inversion(parseExpression());
+                    temp = new Inversion(parseExpression());
                     expect(')');
-                    return temp;
                 } else {
                     throw error("Expected const or begining of expression");
                 }
-            } else if (take('0')) {
-                return new Const(false);
-            } else if (take('1')) {
-                return new Const(true);
-            } else if (take('x')) {
-                return new Variable("x");
-            } else if (take('(')) {
-                Base temp = parseExpression();
-                expect(')');
-                return temp;
             } else {
-                throw error("Expected const or begining of expression");
+                skipWhitespaces();
+                if (take('0')) {
+                    temp = new Const(false);
+                } else if (take('1')) {
+                    temp = new Const(true);
+                } else if (take('x')) {
+                    temp = new Variable("x");
+                } else if (take('(')) {
+                    skipWhitespaces();
+                    temp = parseExpression();
+                    skipWhitespaces();
+                    expect(')');
+                } else {
+                    throw error("Expected const or begining of expression");
+                }
+            }
+            skipWhitespaces();
+            return temp;
+        }
+
+        private void skipWhitespaces() {
+            while(Character.isWhitespace(getCurrent())) {
+                take();
             }
         }
     }

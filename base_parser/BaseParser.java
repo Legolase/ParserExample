@@ -14,6 +14,10 @@ public class BaseParser {
         this.source = new StringCharSource(string);
     }
 
+    protected char getCurrent() {
+        return current;
+    }
+
     protected boolean test(final char expected) {
         return expected == current;
     }
